@@ -6,8 +6,8 @@ backend communicating with a backbone.js, or equivalent, frontend.
 
 This is the framework components of groundwork - these components should be 
 obtained via downloading/cloning the groundwork app components found here: 
-https://github.com/ndavison/groundwork and then running "composure install". 
-This will get these groundwork framework components via composure for you.
+https://github.com/ndavison/groundwork and then running "composer install". 
+This will get these groundwork framework components via composer for you.
 
 ## License
 
