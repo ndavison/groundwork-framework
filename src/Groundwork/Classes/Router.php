@@ -153,7 +153,7 @@ class Router
                             $requestPrepend.$requestedRoute,
                             $uriParams)
                 ) {
-                // A route match was found -
+                // A route match was found
                 
                 // Before returning true, store the params 
                 // that were matched, and store the matched route.
@@ -187,7 +187,7 @@ class Router
         // Is the callback a string? If so, it should be the name of a resource 
         // class, which will be used to build the logic inside a closure.
         if (is_string($callback)) {
-            $className = 'App\\Resources\\' . $callback;
+            $className = 'Resources\\' . $callback;
             if (class_exists($className)) {
                 // Success, so lets build a closure for executing the 
                 // requested resource's output
