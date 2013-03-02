@@ -1,10 +1,10 @@
 <?php
-/**
- * All resources should extend from this class.
- */
 
 namespace Groundwork\Classes;
 
+/**
+ * All resource classes should extend from this class.
+ */
 abstract class Resource
 {    
     /**
@@ -25,12 +25,15 @@ abstract class Resource
      * A reference to the Request instance's property of the same name, just 
      * so it's a bit nicer to access.
      *
-     * @var stdClass
+     * @var object
      */
     protected $routeParams;
     
     /**
      * Establish the properties on object creation.
+     * 
+     * @param Request $request The Request instance
+     * @param Response $response The Response instance
      */
     public function __construct(
         Request $request, 
@@ -40,19 +43,12 @@ abstract class Resource
         $this->request = $request;
         $this->response = $response;
         $this->routeParams = $this->request->routeParams();
-        
-        // Execute the method that acts as a constructor for classes extending 
-        // from this one.
-        $this->init();
     }
-        
-    /**
-     * This acts as a constructor for Resource classes.
-     */
-    protected function init() {}
-            
+                
     /**
      * Generate the output of the requested Resource instance.
+     * 
+     * @return mixed
      */
     public function output()
     {

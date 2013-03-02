@@ -4,19 +4,6 @@ require __DIR__ . '/../../../../../autoload.php';
 
 class ResourceTest extends PHPUnit_Framework_TestCase
 {
-    public function testResourceInitMethodFiresBeforeRequest()
-    {
-        $_SERVER['REQUEST_URI'] = '/api/test';
-        $_SERVER['REQUEST_METHOD'] = 'GET';
-        $_SERVER['QUERY_STRING'] = '';
-        
-        $request = new \Groundwork\Classes\Request('/api/');
-        $response = new \Groundwork\Classes\Response();
-        $resource = new Dummy($request, $response);
-        
-        $this->assertEquals($resource->output(), 'GET - INIT FIRED');
-    }
-    
     public function httpRequestMethodDataSet()
     {
         return array(
@@ -40,36 +27,31 @@ class ResourceTest extends PHPUnit_Framework_TestCase
         $response = new \Groundwork\Classes\Response();
         $resource = new Dummy($request, $response);
         
-        $this->assertEquals($resource->output(), $httpMethod . ' - INIT FIRED');
+        $this->assertEquals($resource->output(), $httpMethod);
     }
 }
 
 class Dummy extends \Groundwork\Classes\Resource
 {
     protected $init;
-    
-    protected function init()
-    {
-        $this->init = 'INIT FIRED';
-    }
-    
+        
     protected function http_GET()
     {
-        return 'GET - ' . $this->init;
+        return 'GET';
     }
     
     protected function http_POST()
     {
-        return 'POST - ' . $this->init;
+        return 'POST';
     }
     
     protected function http_PUT()
     {
-        return 'PUT - ' . $this->init;
+        return 'PUT';
     }
     
     protected function http_DELETE()
     {
-        return 'DELETE - ' . $this->init;
+        return 'DELETE';
     }
 }

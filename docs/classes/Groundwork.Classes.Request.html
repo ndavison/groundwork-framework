@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Groundwork\Classes\Request</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Groundwork.html"><i class="icon-th"></i> Groundwork</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">6</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Populate the properties on object creation."><span class="description">Populate the properties on object creation.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_body" title="body :: Get the data in the request body as an object."><span class="description">Get the data in the request body as an object.</span><pre>body()</pre></a></li>
+<li class="method public "><a href="#method_bodyToJSON" title="bodyToJSON :: Get the data in the request body as a JSON encoded string."><span class="description">Get the data in the request body as a JSON encoded string.</span><pre>bodyToJSON()</pre></a></li>
+<li class="method public "><a href="#method_httpMethod" title="httpMethod :: Get the request's HTTP method."><span class="description">Get the request's HTTP method.</span><pre>httpMethod()</pre></a></li>
+<li class="method public "><a href="#method_route" title="route :: Get the requested route."><span class="description">Get the requested route.</span><pre>route()</pre></a></li>
+<li class="method public "><a href="#method_routeParams" title="routeParams :: Get or set the routeParams property."><span class="description">Get or set the routeParams property.</span><pre>routeParams()</pre></a></li>
+<li class="method public "><a href="#method_uriValues" title="uriValues :: Get the values that were in the request URI/route."><span class="description">Get the values that were in the request URI/route.</span><pre>uriValues()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property_body" title="$body :: Data that was in the request body."><span class="description"></span><pre>$body</pre></a></li>
+<li class="property protected "><a href="#property_httpMethod" title="$httpMethod :: The HTTP method the request used."><span class="description"></span><pre>$httpMethod</pre></a></li>
+<li class="property protected "><a href="#property_route" title="$route :: The route that was requested relative to the defined base directory
+of the app."><span class="description"></span><pre>$route</pre></a></li>
+<li class="property protected "><a href="#property_routeParams" title="$routeParams :: A stdClass object of any params in the URI that the matching route
+defined."><span class="description"></span><pre>$routeParams</pre></a></li>
+<li class="property protected "><a href="#property_uriValues" title="$uriValues :: The query string as an object."><span class="description"></span><pre>$uriValues</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Groundwork\Classes\Request"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Groundwork.html">Groundwork</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Groundwork.Classes.html">Classes</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Groundwork.Classes.Request.html">Request</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Contains information about the request.</p>
+<div class="details">
+<div class="long_description"></div>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Populate the properties on object creation.</h2>
+<pre>__construct(string $basedir) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$basedir</h4>
+<code>string</code><ul>
+<li>taken from app/config.php</li>
+</ul>
+</div>
+</div></div>
+</div>
+<a id="method_body"></a><div class="element clickable method public method_body" data-toggle="collapse" data-target=".method_body .collapse">
+<h2>Get the data in the request body as an object.</h2>
+<pre>body() : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>object</code></div>
+</div></div>
+</div>
+<a id="method_bodyToJSON"></a><div class="element clickable method public method_bodyToJSON" data-toggle="collapse" data-target=".method_bodyToJSON .collapse">
+<h2>Get the data in the request body as a JSON encoded string.</h2>
+<pre>bodyToJSON() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_httpMethod"></a><div class="element clickable method public method_httpMethod" data-toggle="collapse" data-target=".method_httpMethod .collapse">
+<h2>Get the request's HTTP method.</h2>
+<pre>httpMethod() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_route"></a><div class="element clickable method public method_route" data-toggle="collapse" data-target=".method_route .collapse">
+<h2>Get the requested route.</h2>
+<pre>route() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_routeParams"></a><div class="element clickable method public method_routeParams" data-toggle="collapse" data-target=".method_routeParams .collapse">
+<h2>Get or set the routeParams property.</h2>
+<pre>routeParams(object $params) : void | object | boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>object</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>void</code><code>object</code><code>boolean</code>
+</div>
+</div></div>
+</div>
+<a id="method_uriValues"></a><div class="element clickable method public method_uriValues" data-toggle="collapse" data-target=".method_uriValues .collapse">
+<h2>Get the values that were in the request URI/route.</h2>
+<pre>uriValues() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_body"> </a><div class="element clickable property protected property_body" data-toggle="collapse" data-target=".property_body .collapse">
+<h2></h2>
+<pre>$body : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_httpMethod"> </a><div class="element clickable property protected property_httpMethod" data-toggle="collapse" data-target=".property_httpMethod .collapse">
+<h2></h2>
+<pre>$httpMethod : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_route"> </a><div class="element clickable property protected property_route" data-toggle="collapse" data-target=".property_route .collapse">
+<h2></h2>
+<pre>$route : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_routeParams"> </a><div class="element clickable property protected property_routeParams" data-toggle="collapse" data-target=".property_routeParams .collapse">
+<h2></h2>
+<pre>$routeParams : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"><p>E.g. /user/:id against /user/1 will put the value '1' in the
+key 'id' of this array.</p></div></div></div>
+</div>
+<a id="property_uriValues"> </a><div class="element clickable property protected property_uriValues" data-toggle="collapse" data-target=".property_uriValues .collapse">
+<h2></h2>
+<pre>$uriValues : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-03-02T19:00:16+11:00.<br></footer></div>
+</div>
+</body>
+</html>

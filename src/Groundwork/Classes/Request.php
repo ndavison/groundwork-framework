@@ -1,23 +1,23 @@
 <?php
-/**
- * Contains information about the request.
- */
 
 namespace Groundwork\Classes;
 
+/**
+ * Contains information about the request.
+ */
 class Request
 {    
     /**
      * Data that was in the request body.
      * 
-     * @var stdClass
+     * @var object
      */
     protected $body;
     
     /**
      * The query string as an object.
      * 
-     * @var stdClass
+     * @var object
      */
     protected $uriValues;
     
@@ -26,7 +26,7 @@ class Request
      * defined. E.g. /user/:id against /user/1 will put the value '1' in the 
      * key 'id' of this array.
      *
-     * @var stdClass
+     * @var object
      */
     protected $routeParams;
     
@@ -48,7 +48,7 @@ class Request
     /**
      * Populate the properties on object creation.
      * 
-     * @param string $basedir - taken from App/config.php
+     * @param string $basedir - taken from app/config.php
      */
     public function __construct($basedir)
     {       
@@ -84,7 +84,7 @@ class Request
     /**
      * Get the data in the request body as an object.
      * 
-     * @return stdClass
+     * @return object
      */
     public function body()
     {
@@ -134,6 +134,7 @@ class Request
     /**
      * Get or set the routeParams property.
      * 
+     * @param object $params
      * @return void|object|boolean
      */
     public function routeParams($params = '')

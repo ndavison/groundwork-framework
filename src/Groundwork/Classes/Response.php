@@ -1,10 +1,10 @@
 <?php
-/**
- * Handles the HTTP responses. All output should go through this sucker.
- */
 
 namespace Groundwork\Classes;
 
+/**
+ * Handles the HTTP responses - all output should go through this sucker.
+ */
 class Response
 {
     /**
@@ -40,7 +40,7 @@ class Response
      * Output a JSON formatted response of the supplied body param, along with 
      * the supplied code param as the HTTP status code.
      *
-     * @param int $statusCode
+     * @param int $code
      * @param mixed $body 
      */
     public function send($code, $body = '')

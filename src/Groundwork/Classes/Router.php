@@ -1,10 +1,10 @@
 <?php
-/**
- * Converts the URI being requested into a Resource class
- */
 
 namespace Groundwork\Classes;
 
+/**
+ * Handles the logic of matching the requested resource to a predefined route.
+ */
 class Router
 {
     /**
@@ -26,7 +26,7 @@ class Router
      * The params that were matched in the comparison with the request, 
      * populated after calling the Router::matchRequest() method.
      * 
-     * @var stdClass
+     * @var object
      */
     protected $params;
     
@@ -44,7 +44,7 @@ class Router
      * Get the params that were matched in the URI after the request 
      * comparison.
      *
-     * @return stdClass
+     * @return object
      */
     public function params()
     {
@@ -56,30 +56,27 @@ class Router
      * the callback logic.
      * 
      * @param string $route
-     * @param string $callback
+     * @param \Closure|string $callback
      * @param string $httpMethod
      */
     public function register($route, $callback, $httpMethod = '')
     {
         // Convert empty routes to the string 'method:home'
-        if (!$route) $route = 'home';
+        if (!$route) 
+            $route = 'home';
         
         // append the http method supplied
-        if ($httpMethod) $route = strtolower($httpMethod).':'.$route;
-        
-        // Convert the class name to its correct case
-        if (is_string($callback)) {
-            $callback = ucfirst(strtolower($callback));
-        }
-        
+        if ($httpMethod) 
+            $route = strtolower($httpMethod).':'.$route;
+                
         $this->routes[$route] = $callback;
     }
     
     /**
      * Shortcut to register a GET route.
      *  
-     * @param type $route
-     * @param type $callback 
+     * @param string $route
+     * @param \Closure|string $callback 
      */
     public function get($route, $callback)
     {
@@ -89,8 +86,8 @@ class Router
     /**
      * Shortcut to register a POST route.
      *  
-     * @param type $route
-     * @param type $callback 
+     * @param string $route
+     * @param \Closure|string $callback 
      */
     public function post($route, $callback)
     {
@@ -100,8 +97,8 @@ class Router
     /**
      * Shortcut to register a PUT route.
      *  
-     * @param type $route
-     * @param type $callback 
+     * @param string $route
+     * @param \Closure|string $callback 
      */
     public function put($route, $callback)
     {
@@ -111,8 +108,8 @@ class Router
     /**
      * Shortcut to register a DELETE route.
      *  
-     * @param type $route
-     * @param type $callback 
+     * @param string $route
+     * @param \Closure|string $callback 
      */
     public function delete($route, $callback)
     {
@@ -175,12 +172,14 @@ class Router
      * Returns a Closure instance which contains the logic to generate the 
      * output for the requested route, or false.
      *
-     * @return Closure|boolean
+     * @param Application $app
+     * @return \Closure|boolean
      */
-    public function getClosure()
+    public function getClosure($app)
     {    
         // Confirm the matched property is a key in the routes array
-        if (!isset($this->routes[$this->matched])) return false;
+        if (!isset($this->routes[$this->matched]))
+            return false;
         
         $callback = $this->routes[$this->matched];
         
@@ -191,8 +190,14 @@ class Router
             if (class_exists($className)) {
                 // Success, so lets build a closure for executing the 
                 // requested resource's output
-                $callback = function($request, $response) use ($className) {
-                    $resource = new $className($request, $response);
+                $callback = function() use ($app, $className, $callback) {
+                    // Does this resource have a IoC alias registered?
+                    if (!$resource = $app->get($callback))
+                        $resource = new $className(
+                            $app->get('request'), 
+                            $app->get('response')
+                        );
+                    
                     $resource->output();
                 };
 

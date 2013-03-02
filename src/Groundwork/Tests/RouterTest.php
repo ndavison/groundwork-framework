@@ -10,16 +10,16 @@ class RouterTest extends PHPUnit_Framework_TestCase
         
         $router->register('', 'Home');
         $router->register('test', 'test');
-        $router->register('test/:id', 'test');
-        $router->register('test/:id?', 'test');
-        $router->register('test2/:id/:field?', 'test2');
-        $router->register('get:test2/:id/:field?', 'test2');
+        $router->register('test/:id', 'Test');
+        $router->register('test/:id?', 'Test');
+        $router->register('test2/:id/:field?', 'Test2');
+        $router->register('get:test2/:id/:field?', 'Test2');
         $router->register('foo', function($request, $response) {});
         
         $routes = $router->routes();
         
         $this->assertEquals($routes['home'], 'Home');
-        $this->assertEquals($routes['test'], 'Test');
+        $this->assertEquals($routes['test'], 'test');
         $this->assertEquals($routes['test/:id'], 'Test');
         $this->assertEquals($routes['test/:id?'], 'Test');
         $this->assertEquals($routes['test2/:id/:field?'], 'Test2');
@@ -138,9 +138,12 @@ class RouterTest extends PHPUnit_Framework_TestCase
         
         $request = new \Groundwork\Classes\Request($basedir);
         
-        $router->register($registeredRoute, 'home');
+        $router->register($registeredRoute, 'HomeResource');
         $matched = $router->matchRequest($request->route(), 'GET');
-        $return = $router->getClosure();
+        $app = new \Groundwork\Classes\Application(array());
+        $app->register('request', function(){});
+        $app->register('response', function(){});
+        $return = $router->getClosure($app);
         
         $this->assertTrue($matched === $expected);
         $this->assertTrue(is_callable($return) === $expected);
@@ -165,7 +168,7 @@ class RouterTest extends PHPUnit_Framework_TestCase
         
         $router->register($registeredRoute, function($request, $response) {});
         $matched = $router->matchRequest($request->route(), 'GET');
-        $return = $router->getClosure();
+        $return = $router->getClosure(new \Groundwork\Classes\Application(array()));
         
         $this->assertTrue($matched === $expected);
         $this->assertTrue(is_callable($return) === $expected);
