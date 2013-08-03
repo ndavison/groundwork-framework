@@ -28,8 +28,7 @@
     },
     
     "suggest": {
-        "illuminate/database": "Laravel's database abstraction is great for adding ORM capabilities",
-        "dhorrigan/capsule": "Capsule is a wrapper for using Laravel's database outside of Laravel"
+        "illuminate/database": "Laravel's database abstraction is great for adding ORM capabilities"
     },
     
     "autoload": {
