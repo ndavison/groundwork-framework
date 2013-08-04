@@ -131,7 +131,7 @@ class Router
             
             // Convert the route to a regex pattern
             $routeRx = preg_replace(
-                        '%/:?([^ /?]+)(\?)?%',
+                        '%/:([^ /?]+)(\?)?%',
                         '/\2(?P<\1>[^ /?]+)\2',
                     $route);
             
